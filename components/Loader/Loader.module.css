@@ -1,0 +1,40 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(223, 223, 223, 0.44);
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 543px;
+    height: 296px;
+    padding: 48px 96px;
+    border-radius: 16px;
+    background-color: var(--color-white);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    text-align: center;
+    color: var(--color-main);
+    margin-top: 32px;
+}
+
+.text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--color-main);
+    margin-top: 16px;
+    width: 300px;
+}
