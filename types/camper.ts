@@ -16,4 +16,13 @@ export type Camper = {
   amenities: string[],
   coverImage: string,
   totalReviews: number,
+  gallery: GalleryImage[],
 }
+
+export type GalleryImage = {
+  id: string;
+  camperId: string;
+  thumb: string;
+  original: string;
+  order: number;
+};

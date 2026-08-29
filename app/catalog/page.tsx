@@ -62,13 +62,11 @@ const CatalogPage = () => {
         onSearch={handleSearch}
         onClear={handleClear}
       />
-
       {campers.length > 0 ? (
         <CamperList campers={campers} />
       ) : (
         <NotFound onShowAll={handleShowAll} />
       )}
-
       {hasNextPage && (
         <button type="button" onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
           {isFetchingNextPage ? 'Loading...' : 'Load More'}

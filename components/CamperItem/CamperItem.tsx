@@ -21,13 +21,11 @@ const CamperItem = ({ camper }: CamperItemProps) => {
         width={292}
         height={320}
       />
-
       <div className={css.content}>
         <div className={css.header}>
           <h2 className={css.name}>{camper.name}</h2>
           <p className={css.price}>€{camper.price}</p>
         </div>
-
         <div className={css.rating}>
           <FaStar />
           <span>
@@ -38,9 +36,7 @@ const CamperItem = ({ camper }: CamperItemProps) => {
             {camper.location}
           </p>
         </div>
-
         <p className={css.description}>{camper.description}</p>
-
         <div className={css.features}>
           <span>
             <FaGasPump />
@@ -55,7 +51,6 @@ const CamperItem = ({ camper }: CamperItemProps) => {
             {camper.form}
           </span>
         </div>
-
         <Link className={css.button} href={`/catalog/${camper.id}`} target="_blank">
           Show more
         </Link>
