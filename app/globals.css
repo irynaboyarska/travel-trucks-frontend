@@ -1,17 +1,17 @@
 :root {
-  --color-main: #101828;
-  --color-text: #475467;
-  --color-white: #FFFFFF;
-  --color-inputs: #F7F7F7;
-  --color-badges: #F2F4F7;
-  --color-gray: #6C717B;
-  --color-gray-light: #DADDE1;
-  --color-button: #E44848;
-  --color-button-hover: #D84343;
-  --color-rating: #FFC531;
-  --color-grey-green: #829B91;
-  --color-olive: #F0F1F1;
-  --color-green-hover: #6D7B75;
+  --main: #101828;
+  --text: #475467;
+  --white: #FFFFFF;
+  --inputs: #F7F7F7;
+  --badges: #F2F4F7;
+  --gray: #6C717B;
+  --gray-light: #DADDE1;
+  --button: #E44848;
+  --button-hover: #D84343;
+  --rating: #FFC531;
+  --grey-green: #829B91;
+  --olive: #F0F1F1;
+  --green-hover: #6D7B75;
 }
 
 * {
@@ -26,8 +26,8 @@ body {
 
 body {
   font-family: var(--font-inter), sans-serif;
-  color: var(--color-black);
-  background-color: var(--color-white);
+  color: var(--main);
+  background-color: var(--white);
 }
 
 button,
@@ -42,4 +42,8 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul, li{
+  list-style: none;
 }
