@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <section className={css.hero}>
         <h1>Campers of your dreams</h1>
-        <p>You can find everything you want in our catalog</p>
+        <h2>You can find everything you want in our catalog</h2>
         <Link href="/catalog">View now</Link>
       </section>
     </main>
