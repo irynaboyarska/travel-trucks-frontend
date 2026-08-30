@@ -1,5 +1,7 @@
 import type { CamperFiltersParams } from '@/lib/api';
 import { CiMap } from 'react-icons/ci';
+import css from './CamperFilters.module.css';
+import { IoIosClose } from 'react-icons/io';
 
 type CamperFiltersProps = {
   filters: CamperFiltersParams;
@@ -7,17 +9,22 @@ type CamperFiltersProps = {
   onSearch: () => void;
   onClear: () => void;
 };
+
 const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersProps) => {
   const handleChange = (key: keyof CamperFiltersParams, value: string) => {
     onChange({ ...filters, [key]: value || undefined });
   };
+
   return (
-    <aside>
-      <div>
-        <label htmlFor="location">Location</label>
-        <div>
-          <CiMap />
+    <aside className={css.filters}>
+      <div className={css.location}>
+        <label className={css.locationLabel} htmlFor="location">
+          Location
+        </label>
+        <div className={css.locationInput}>
+          <CiMap className={css.locationIcon} />
           <input
+            className={css.input}
             id="location"
             type="text"
             placeholder="City"
@@ -26,11 +33,12 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
         </div>
       </div>
-      <h3>Filters</h3>
-      <fieldset>
-        <legend>Camper form</legend>
-        <label>
+      <h3 className={css.title}>Filters</h3>
+      <fieldset className={css.fieldset}>
+        <legend className={css.legend}>Camper form</legend>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="form"
             checked={filters.form === 'alcove'}
@@ -38,8 +46,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Alcove
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="form"
             checked={filters.form === 'panel_van'}
@@ -47,8 +56,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Panel Van
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="form"
             checked={filters.form === 'integrated'}
@@ -56,8 +66,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Integrated
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="form"
             checked={filters.form === 'semi_integrated'}
@@ -66,10 +77,11 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           Semi Integrated
         </label>
       </fieldset>
-      <fieldset>
-        <legend>Engine</legend>
-        <label>
+      <fieldset className={css.fieldset}>
+        <legend className={css.legend}>Engine</legend>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="engine"
             checked={filters.engine === 'diesel'}
@@ -77,8 +89,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Diesel
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="engine"
             checked={filters.engine === 'petrol'}
@@ -86,8 +99,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Petrol
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="engine"
             checked={filters.engine === 'hybrid'}
@@ -95,8 +109,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Hybrid
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="engine"
             checked={filters.engine === 'electric'}
@@ -105,10 +120,11 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           Electric
         </label>
       </fieldset>
-      <fieldset>
-        <legend>Transmission</legend>
-        <label>
+      <fieldset className={css.fieldset}>
+        <legend className={css.legend}>Transmission</legend>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="transmission"
             checked={filters.transmission === 'automatic'}
@@ -116,8 +132,9 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           />
           Automatic
         </label>
-        <label>
+        <label className={css.option}>
           <input
+            className={css.radio}
             type="radio"
             name="transmission"
             checked={filters.transmission === 'manual'}
@@ -126,15 +143,17 @@ const CamperFilters = ({ filters, onChange, onSearch, onClear }: CamperFiltersPr
           Manual
         </label>
       </fieldset>
-      <div>
-        <button type="button" onClick={onSearch}>
+      <div className={css.actions}>
+        <button className={css.searchButton} type="button" onClick={onSearch}>
           Search
         </button>
-        <button type="button" onClick={onClear}>
+        <button className={css.clearButton} type="button" onClick={onClear}>
+          <IoIosClose size={24} />
           Clear filters
         </button>
       </div>
     </aside>
   );
 };
+
 export default CamperFilters;

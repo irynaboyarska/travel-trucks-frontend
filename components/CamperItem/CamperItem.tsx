@@ -18,8 +18,8 @@ const CamperItem = ({ camper }: CamperItemProps) => {
         className={css.image}
         src={camper.coverImage}
         alt={camper.name}
-        width={292}
-        height={320}
+        width={219}
+        height={240}
       />
       <div className={css.content}>
         <div className={css.header}>
@@ -27,10 +27,12 @@ const CamperItem = ({ camper }: CamperItemProps) => {
           <p className={css.price}>€{camper.price}</p>
         </div>
         <div className={css.rating}>
-          <FaStar />
-          <span>
-            {camper.rating} ({camper.totalReviews} Reviews)
-          </span>
+          <div className={css.review}>
+            <FaStar />
+            <span>
+              {camper.rating} ({camper.totalReviews} Reviews)
+            </span>
+          </div>
           <p className={css.location}>
             <CiMap />
             {camper.location}
