@@ -1,0 +1,59 @@
+.section {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 16px;
+    padding: 24px;
+    height: 360px;
+    background-color: var(--inputs);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: var(--main);
+    margin-bottom: 16px;
+}
+
+.badgesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    padding: 12px;
+    background-color: var(--badges);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--main);
+    text-transform: capitalize;
+}
+
+.detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detailRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detailLabel,
+.detailValue {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--main);
+}

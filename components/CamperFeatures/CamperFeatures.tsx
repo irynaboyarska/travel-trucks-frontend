@@ -1,44 +1,52 @@
 import type { Camper } from '@/types/camper';
+import css from './CamperFeatures.module.css';
 
 type CamperFeaturesProps = {
   camper: Camper;
 };
 
 const CamperFeatures = ({ camper }: CamperFeaturesProps) => {
-  const features = [camper.transmission, ...camper.amenities, camper.engine, camper.form];
+  const features = [
+    camper.transmission,
+    ...camper.amenities.slice(0, 3),
+    camper.engine,
+    camper.form,
+  ];
 
   return (
-    <section>
-      <h2>Vehicle details</h2>
-      <div>
+    <section className={css.section}>
+      <h2 className={css.title}>Vehicle details</h2>
+      <div className={css.badgesList}>
         {features.map(feature => (
-          <span key={feature}>{feature}</span>
+          <span className={css.badge} key={feature}>
+            {feature}
+          </span>
         ))}
       </div>
-      <div>
-        <div>
-          <span>Form</span>
-          <span>{camper.form}</span>
+      <div className={css.detailsList}>
+        <div className={css.detailRow}>
+          <span className={css.detailLabel}>Form</span>
+          <span className={css.detailValue}>{camper.form}</span>
         </div>
-        <div>
-          <span>Length</span>
-          <span>{camper.length}</span>
+        <div className={css.detailRow}>
+          <span className={css.detailLabel}>Length</span>
+          <span className={css.detailValue}>{camper.length}</span>
         </div>
-        <div>
-          <span>Width</span>
-          <span>{camper.width}</span>
+        <div className={css.detailRow}>
+          <span className={css.detailLabel}>Width</span>
+          <span className={css.detailValue}>{camper.width}</span>
         </div>
-        <div>
-          <span>Height</span>
-          <span>{camper.height}</span>
+        <div className={css.detailRow}>
+          <span className={css.detailLabel}>Height</span>
+          <span className={css.detailValue}>{camper.height}</span>
         </div>
-        <div>
-          <span>Tank</span>
-          <span>{camper.tank}</span>
+        <div className={css.detailRow}>
+          <span className={css.detailLabel}>Tank</span>
+          <span className={css.detailValue}>{camper.tank}</span>
         </div>
-        <div>
-          <span>Consumption</span>
-          <span>{camper.consumption}</span>
+        <div className={css.detailRow}>
+          <span className={css.detailLabel}>Consumption</span>
+          <span className={css.detailValue}>{camper.consumption}</span>
         </div>
       </div>
     </section>

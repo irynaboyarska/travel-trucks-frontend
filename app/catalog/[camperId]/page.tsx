@@ -3,6 +3,9 @@ import CamperGallery from '@/components/CamperGallery/CamperGallery';
 import ReviewItem from '@/components/ReviewItem/ReviewItem';
 import BookingForm from '@/components/BookingForm/BookingForm';
 import CamperFeatures from '@/components/CamperFeatures/CamperFeatures';
+import { CiMap } from 'react-icons/ci';
+import { FaStar } from 'react-icons/fa';
+import css from './page.module.css';
 
 type CamperDetailsPageProps = {
   params: Promise<{
@@ -17,23 +20,39 @@ const CamperDetailsPage = async ({ params }: CamperDetailsPageProps) => {
   const reviews = await getCamperReviews(camperId);
 
   return (
-    <main>
-      <CamperGallery gallery={camper.gallery} />
-      <h2>{camper.name}</h2>
-      <p>
-        {camper.rating} ({camper.totalReviews} Reviews)
-      </p>
-      <p>{camper.location}</p>
-      <p>€{camper.price}</p>
-      <p>{camper.description}</p>
-      <CamperFeatures camper={camper} />
-      <section>
-        <h2>Reviews</h2>
-        {reviews.map(review => (
-          <ReviewItem key={review.id} review={review} />
-        ))}
+    <main className={css.main}>
+      <div className={css.topSection}>
+        <CamperGallery gallery={camper.gallery} />
+
+        <section className={css.detailsSection}>
+          <div className={css.infoBlock}>
+            <h2 className={css.title}>{camper.name}</h2>
+            <div className={css.metaGroup}>
+              <p className={css.rating}>
+                <FaStar className={css.ratingIcon} />
+                {camper.rating} ({camper.totalReviews} Reviews)
+              </p>
+              <p className={css.location}>
+                <CiMap size={16} />
+                {camper.location}
+              </p>
+            </div>
+            <p className={css.price}>€{camper.price}</p>
+            <p className={css.description}>{camper.description}</p>
+          </div>
+          <CamperFeatures camper={camper} />
+        </section>
+      </div>
+
+      <section className={css.reviewsAndBookingSection}>
+        <div className={css.reviewsBlock}>
+          <h2 className={css.reviewsTitle}>Reviews</h2>
+          {reviews.map(review => (
+            <ReviewItem key={review.id} review={review} />
+          ))}
+        </div>
+        <BookingForm camperId={camperId} />
       </section>
-      <BookingForm camperId={camperId} />
     </main>
   );
 };
