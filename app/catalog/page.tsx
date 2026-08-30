@@ -8,6 +8,7 @@ import CamperFilters from '@/components/CamperFilters/CamperFilters';
 import CamperList from '@/components/CamperList/CamperList';
 import NotFound from '@/components/NotFound/NotFound';
 import Loader from '@/components/Loader/Loader';
+import css from './page.module.css';
 
 const CatalogPage = () => {
   const [filters, setFilters] = useState<CamperFiltersParams>({});
@@ -55,23 +56,34 @@ const CatalogPage = () => {
   };
 
   return (
-    <main>
-      <CamperFilters
-        filters={filterValues}
-        onChange={setFilterValues}
-        onSearch={handleSearch}
-        onClear={handleClear}
-      />
-      {campers.length > 0 ? (
-        <CamperList campers={campers} />
-      ) : (
-        <NotFound onShowAll={handleShowAll} />
-      )}
-      {hasNextPage && (
-        <button type="button" onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
-          {isFetchingNextPage ? 'Loading...' : 'Load More'}
-        </button>
-      )}
+    <main className={css.catalog}>
+      <div className={css.content}>
+        <CamperFilters
+          filters={filterValues}
+          onChange={setFilterValues}
+          onSearch={handleSearch}
+          onClear={handleClear}
+        />
+
+        <div className={css.camperList}>
+          {campers.length > 0 ? (
+            <CamperList campers={campers} />
+          ) : (
+            <NotFound onShowAll={handleShowAll} />
+          )}
+
+          {hasNextPage && (
+            <button
+              className={css.loadMore}
+              type="button"
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+            >
+              {isFetchingNextPage ? 'Loading...' : 'Load More'}
+            </button>
+          )}
+        </div>
+      </div>
     </main>
   );
 };

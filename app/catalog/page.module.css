@@ -1,0 +1,43 @@
+.catalog {
+    padding: 48px 64px;
+ 
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+}
+
+.camperList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.loadMore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: 1px solid var(--gray-light);
+    border-radius: 200px;
+    padding: 16px 32px;
+    min-width: 145px;
+    height: 56px;
+    margin-top: 40px;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--main);
+    transition:
+        background-color 250ms ease,
+        color 250ms ease;
+}
+
+.loadMore:hover {
+    border: 1px solid var(--green-hover);
+}
